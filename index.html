@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lógica Matemática · 4.º C</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <h1>LÓGICA MATEMÁTICA · 4.º C</h1>
+      <p>IPETyM N.º 246 · Resumen + Quest</p>
+    </div>
+    <div class="hud">
+      <div class="hud-box">XP: <span id="xp-display">0</span> / 1600</div>
+      <div class="hud-box">Rango: <span id="rank-display">Iniciado</span></div>
+      <div>
+        <div style="font-size:0.72rem;color:#94a3b8;margin-bottom:3px;">Progreso (<span id="answered-count">0</span>/16)</div>
+        <div class="progress-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="section-switch">
+    <button class="section-btn active" onclick="switchView('quiz')">🎯 Quest / Quiz</button>
+    <button class="section-btn" onclick="switchView('resumen')">📘 Resumen Anual</button>
+  </div>
+
+  <section class="view active" id="view-quiz">
+    <div class="nav-tabs" id="nav-tabs"></div>
+    <div id="stage-container"></div>
+    <div class="final-screen" id="final-screen">
+      <div style="font-size:0.85rem;letter-spacing:1.5px;color:#38bdf8;font-weight:700;">MISIÓN COMPLETADA</div>
+      <h2 style="font-size:1.8rem;margin-top:6px;">¡Recorriste todos los TPs!</h2>
+      <div class="rank-badge" id="final-rank">Arquitecto Lógico</div>
+      <p id="final-msg" style="color:#94a3b8;max-width:600px;margin:0 auto;"></p>
+      <div class="grid-summary" id="grid-summary"></div>
+      <div style="margin-top:24px;"><button class="btn-primary" onclick="resetQuest()">Reiniciar Quest</button></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-resumen">
+    <div class="resumen-wrap">
+      <header>
+        <p class="school">IPETYM N.º 246 "Dr. Amadeo Sabattini" · Tecnicatura en Programación</p>
+        <h1>Resumen Anual — Lógica Matemática</h1>
+        <p>Síntesis de los TPs realizados en 4.º Año C (Ciclo Lectivo 2026).</p>
+        <ul class="stats">
+          <li><strong>16 TPs</strong>analizados (TP 01 al 17)</li>
+          <li><strong>4 ejes</strong>de datos binarios a matrices</li>
+          <li><strong>Python</strong>Colab, NumPy, PIL, Matplotlib</li>
+          <li><strong>4.º C</strong>nivel secundario técnico</li>
+        </ul>
+      </header>
+
+      <h2>Eje 1: Sistemas Numéricos (TP 01 – 04)</h2>
+      <article>
+        <h3><span>TP 01</span>Sistemas de Numeración</h3>
+        <p>Decimal, binario, octal y hexadecimal. Conversión por divisiones sucesivas y agrupación rápida (3 bits octal, 4 bits hex). Aplicación: direcciones A7 y A8.</p>
+      </article>
+      <article>
+        <h3><span>TP 02</span>Aritmética Lógica</h3>
+        <p>Suma binaria con acarreos (1+1=10₂, 1+1+1=11₂, 1+1+1+1=100₂). Multiplicación con productos parciales y validación decimal.</p>
+      </article>
+      <article>
+        <h3><span>TP 03</span>Unidades de Medida</h3>
+        <p>Bit vs Byte (8 bits). Prefijos decimales (10³=1000) vs binarios (2¹⁰=1024). Por qué un pendrive de 16 GB muestra menos en Windows.</p>
+      </article>
+      <article>
+        <h3><span>TP 04</span>ASCII y Unicode</h3>
+        <p>ASCII de 7 bits (128 caracteres) vs Unicode/UTF-8 (1 a 4 bytes). Distancia mayúscula/minúscula: 97−65=32.</p>
+      </article>
+
+      <h2>Eje 2: Lógica y De Morgan (TP 05 – 10)</h2>
+      <article>
+        <h3><span>TP 05</span>Lógica Proposicional I</h3>
+        <p>Proposiciones, variables (p, q, r), tablas de verdad O/Y/NO. Circuitos serie/paralelo. Tautología, contradicción, contingencia.</p>
+        <p class="note">Nota: el TP 06 no estaba en la carpeta recibida.</p>
+      </article>
+      <article>
+        <h3><span>TP 07</span>Flashcards — Lógica II</h3>
+        <p>Condicional (p→q), bicondicional (p↔q) y XOR (p⊕q) con Diagramas de Venn.</p>
+      </article>
+      <article>
+        <h3><span>TP 08</span>Hoja de Ruta</h3>
+        <p>Cheat Sheet de tablas de verdad, simbología y Venn en una página.</p>
+      </article>
+      <article>
+        <h3><span>TP 09</span>De Morgan con Conjuntos</h3>
+        <p>(A∪B)' = A'∩B' y (A∩B)' = A'∪B' con ejemplos cotidianos.</p>
+      </article>
+      <article>
+        <h3><span>TP 10</span>De Morgan en la Vida Real</h3>
+        <p>4 situaciones originales (2 por ley) con contexto y transformación lógica.</p>
+      </article>
+
+      <h2>Eje 3: Python — Vectores y Matrices (TP 11 – 15)</h2>
+      <article>
+        <h3><span>TP 11</span>Filtrado con Vectores</h3>
+        <p>Listas, bucles <code>for</code>, <code>if</code> con and/or/not y carga con <code>.append()</code>.</p>
+      </article>
+      <article>
+        <h3><span>TP 12</span>Escudo en Matriz</h3>
+        <p><code>escudo.bmp</code> en matriz 25×25 (625 píxeles, 0–255) con <code>for</code> anidados.</p>
+      </article>
+      <article>
+        <h3><span>TP 13</span>Pixel Art</h3>
+        <p>10 producciones (5 color, 5 grises) en 16×16 y 25×25.</p>
+      </article>
+      <article>
+        <h3><span>TP 14</span>Pixel Art en Python</h3>
+        <p><code>PIL</code>, <code>numpy</code>, <code>matplotlib</code>. RGB (N,N,3) vs grises (N,N).</p>
+      </article>
+      <article>
+        <h3><span>TP 15</span>GitHub</h3>
+        <p>Cuenta para versionar y compartir proyectos web.</p>
+      </article>
+
+      <h2>Eje 4: Cartesiano y Matrices (TP 16 – 17)</h2>
+      <article>
+        <h3><span>TP 16</span>Producto Cartesiano</h3>
+        <p>|A×B| = |A|×|B|. Comprensión de listas en Python. Relación vs función (unicidad de salida).</p>
+      </article>
+      <article>
+        <h3><span>TP 17</span>Laboratorio de Matrices</h3>
+        <p>Cuadrada, nula, identidad, diagonal, triangular, simétrica. Suma, resta, multiplicación, escalar. Diagonal (i=j) y triangular superior (i&lt;j activo).</p>
+      </article>
+
+      <footer>Lógica Matemática · 4.º Año C · IPETyM N.º 246</footer>
+    </div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background: radial-gradient(circle at top, #172554 0%, #0b1120 55%);
+  color: #f1f5f9;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+header.site-header {
+  background: rgba(15,23,42,0.92);
+  border-bottom: 2px solid #38bdf8;
+  padding: 18px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+
+.header-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand h1 { font-size: 1.35rem; color: #38bdf8; letter-spacing: 0.5px; }
+.brand p { font-size: 0.82rem; color: #94a3b8; }
+
+.hud { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+.hud-box {
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.hud-box span { font-weight: 700; color: #38bdf8; }
+
+.progress-wrap {
+  width: 160px;
+  height: 10px;
+  background: #0f172a;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  transition: width 0.35s ease;
+}
+
+.container { max-width: 980px; margin: 26px auto; padding: 0 18px; }
+
+.section-switch { display: flex; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+
+.section-btn {
+  background: #111827;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.section-btn:hover { border-color: #38bdf8; color: #f1f5f9; }
+
+.section-btn.active {
+  background: #38bdf8;
+  color: #0b1120;
+  border-color: #38bdf8;
+  box-shadow: 0 0 14px rgba(56,189,248,0.25);
+}
+
+section.view { display: none; }
+section.view.active { display: block; }
+
+.nav-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+
+.tab-btn {
+  background: #111827;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  padding: 9px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover { border-color: #38bdf8; color: #f1f5f9; }
+
+.tab-btn.active {
+  background: #38bdf8;
+  color: #0b1120;
+  border-color: #38bdf8;
+  box-shadow: 0 0 14px rgba(56,189,248,0.25);
+}
+
+.tab-btn.completed { border-color: #22c55e; }
+
+.stage-card {
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.stage-header {
+  border-bottom: 1px solid #334155;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.stage-badge {
+  display: inline-block;
+  background: rgba(56,189,248,0.15);
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.stage-header h2 { font-size: 1.25rem; color: #fff; }
+.stage-desc { color: #94a3b8; font-size: 0.9rem; margin-top: 4px; }
+
+.question-box {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.q-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #38bdf8;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.q-title { font-size: 1rem; font-weight: 600; margin-bottom: 12px; line-height: 1.45; }
+
+code {
+  background: #0f172a;
+  color: #38bdf8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+  font-size: 0.92em;
+}
+
+.options { display: grid; gap: 8px; }
+
+.opt-btn {
+  text-align: left;
+  background: #0f172a;
+  color: #f1f5f9;
+  border: 1px solid #334155;
+  padding: 11px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition: all 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.opt-btn:hover:not(:disabled) { border-color: #38bdf8; background: #172554; }
+
+.opt-btn.correct {
+  border-color: #22c55e;
+  background: rgba(34,197,94,0.18);
+  color: #bbf7d0;
+}
+
+.opt-btn.wrong {
+  border-color: #ef4444;
+  background: rgba(239,68,68,0.18);
+  color: #fecaca;
+}
+
+.opt-btn:disabled { cursor: default; opacity: 0.92; }
+
+.feedback {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  display: none;
+  line-height: 1.4;
+}
+
+.feedback.show { display: block; }
+
+.feedback.ok {
+  background: rgba(34,197,94,0.12);
+  border-left: 3px solid #22c55e;
+  color: #dcfce7;
+}
+
+.feedback.err {
+  background: rgba(239,68,68,0.12);
+  border-left: 3px solid #ef4444;
+  color: #fee2e2;
+}
+
+.actions-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: #38bdf8;
+  color: #0b1120;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.92rem;
+}
+
+.btn-primary:hover { filter: brightness(1.1); }
+
+.btn-secondary {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  padding: 9px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.btn-secondary:hover { color: #fff; border-color: #94a3b8; }
+
+.final-screen {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(145deg, #111827, #1e1b4b);
+  border: 2px solid #a855f7;
+  border-radius: 14px;
+  display: none;
+}
+
+.final-screen.show { display: block; }
+
+.rank-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  color: #fff;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  margin: 14px 0;
+}
+
+.grid-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.mini-card {
+  background: rgba(15,23,42,0.8);
+  border: 1px solid #334155;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.mini-card strong { color: #38bdf8; display: block; margin-bottom: 4px; }
+
+.resumen-wrap {
+  background: #f3f6fa;
+  color: #14243b;
+  border-radius: 14px;
+  padding: 2rem 1.5rem 3rem;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.resumen-wrap header {
+  border-bottom: 3px solid #0b5fa5;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.resumen-wrap .school {
+  font: 600 .9rem/1.4 system-ui;
+  color: #506078;
+  margin-bottom: .5rem;
+}
+
+.resumen-wrap h1 {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: #14243b;
+  margin-bottom: .75rem;
+}
+
+.resumen-wrap header p { color: #506078; margin: .5rem 0 0; }
+
+.resumen-wrap .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+  gap: .75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resumen-wrap .stats li {
+  background: #e4eefa;
+  border-left: 4px solid #0b5fa5;
+  padding: .7rem .9rem;
+  font: .85rem/1.4 system-ui;
+  color: #506078;
+}
+
+.resumen-wrap .stats strong {
+  display: block;
+  font: 700 1.5rem/1.2 Georgia;
+  color: #14243b;
+}
+
+.resumen-wrap h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.4rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid #d3dce8;
+  color: #14243b;
+}
+
+.resumen-wrap article {
+  background: #fff;
+  border: 1px solid #d3dce8;
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem;
+  margin: 1rem 0;
+}
+
+.resumen-wrap article h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.08rem;
+  color: #14243b;
+}
+
+.resumen-wrap article h3 span {
+  color: #0b5fa5;
+  font-family: system-ui;
+  margin-right: .4rem;
+}
+
+.resumen-wrap article p { margin: .4rem 0; }
+.resumen-wrap article ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+.resumen-wrap article li { margin: .35rem 0; }
+
+.resumen-wrap .note {
+  font-size: .95rem;
+  color: #506078;
+  border-left: 3px solid #d3dce8;
+  padding-left: .8rem;
+}
+
+.resumen-wrap code {
+  font: .88em Consolas, monospace;
+  background: #eef2f7;
+  color: #14243b;
+  padding: .1em .35em;
+  border-radius: 3px;
+}
+
+.resumen-wrap footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d3dce8;
+  font: .85rem/1.4 system-ui;
+  color: #506078;
+}
+
+@media (max-width: 600px) {
+  .brand h1 { font-size: 1.05rem; }
+  .resumen-wrap { padding: 1.3rem 1rem 2rem; }
+}const STAGES = [
+  {
+    tab: "Nivel 1 · Datos Binarios",
+    badge: "NIVEL 1 · TP 01 al TP 04",
+    title: "El Núcleo Binario y la Representación de Datos",
+    desc: "Sistemas numéricos, aritmética binaria, escalas de almacenamiento y codificación de texto.",
+    questions: [
+      { tp: "TP 01 · Sistemas de Numeración",
+        q: "Para convertir el binario <code>1010011₂</code> a Hexadecimal usando agrupación rápida, ¿de a cuántos bits se agrupa desde la derecha?",
+        opts: ["De a 3 bits (123₁₆)", "De a 4 bits (53₁₆)", "De a 2 bits (2103₁₆)", "De a 8 bits (83₁₆)"],
+        ans: 1,
+        exp: "Hexadecimal agrupa de a 4 bits: 0101(5) y 0011(3) → 53₁₆." },
+      { tp: "TP 02 · Aritmética Lógica",
+        q: "En una suma binaria, si en una columna tenés <code>1+1+1+1</code>, ¿cómo aplicás el acarreo?",
+        opts: ["Pongo 0 y llevo 1.", "Pongo 1 y llevo 1.", "Pongo 0, llevo 0 a la siguiente y 1 a la que sigue (100₂).", "Pongo 4 y no llevo nada."],
+        ans: 2,
+        exp: "4 en binario es 100₂: 0 en la columna actual, 0 en la siguiente y 1 dos a la izquierda." },
+      { tp: "TP 03 · Unidades",
+        q: "Un pendrive de <code>16 GB</code> muestra menos en Windows. ¿Por qué?",
+        opts: ["Viene fallado.", "Fabricantes usan base decimal (1000) y el SO divide por 1024.", "Windows reserva 25%.", "1 Byte = 10 bits."],
+        ans: 1,
+        exp: "El marketing usa 10³=1000; el sistema operativo usa 2¹⁰=1024." },
+      { tp: "TP 04 · ASCII y Unicode",
+        q: "'A'=65 y 'a'=97. ¿Qué operación convierte mayúscula a minúscula y qué dice el byte <code>01001000</code>?",
+        opts: ["Sumar 32; es 'H'.", "Restar 16; es '@'.", "Multiplicar x2; es 'Ñ'.", "Sumar 7; es 'K'."],
+        ans: 0,
+        exp: "97-65=32. Byte 01001000 = 72 = 'H'." }
+    ]
+  },
+  {
+    tab: "Nivel 2 · Lógica y De Morgan",
+    badge: "NIVEL 2 · TP 05 al TP 10",
+    title: "Lógica Proposicional y Conjuntos",
+    desc: "Proposiciones, conectores, Venn y Leyes de De Morgan.",
+    questions: [
+      { tp: "TP 05 · Lógica",
+        q: "¿Cómo se llama una tabla siempre verdadera y con qué circuito se relaciona la Conjunción?",
+        opts: ["Contradicción · Paralelo.", "Tautología · Serie.", "Contingencia · Abierto.", "Tautología · Paralelo."],
+        ans: 1,
+        exp: "Tautología = siempre V. Conjunción (Y) = serie." },
+      { tp: "TP 07-08 · Venn",
+        q: "¿Qué operación de Venn representa la Disyunción Exclusiva (<code>p ⊕ q</code>)?",
+        opts: ["Intersección.", "Diferencia simétrica (A Δ B).", "Complemento universal.", "Solo A."],
+        ans: 1,
+        exp: "XOR es verdadera solo cuando p y q son distintas = diferencia simétrica." },
+      { tp: "TP 09 · De Morgan",
+        q: "El complemento de la unión <code>(A∪B)'</code> equivale a:",
+        opts: ["A' ∪ B'", "A' ∩ B'", "A ∩ B", "A - B"],
+        ans: 1,
+        exp: "Primera Ley: (A∪B)' = A' ∩ B'." },
+      { tp: "TP 10 · De Morgan real",
+        q: "<code>NO (tiene_veneno Y nivel_bajo)</code> equivale a:",
+        opts: ["NO tiene_veneno Y NO nivel_bajo", "NO tiene_veneno O NO nivel_bajo", "tiene_veneno O nivel_bajo", "tiene_veneno Y NO nivel_bajo"],
+        ans: 1,
+        exp: "¬(p∧q) ≡ ¬p ∨ ¬q. El Y se convierte en O." }
+    ]
+  },
+  {
+    tab: "Nivel 3 · Python y Matrices",
+    badge: "NIVEL 3 · TP 11 al TP 15",
+    title: "Vectores 1D e Imágenes 2D",
+    desc: "Filtrado en Python, matrices de píxeles y GitHub.",
+    questions: [
+      { tp: "TP 11 · Vectores",
+        q: "¿Qué método agrega elementos a un nuevo vector en Python?",
+        opts: ["insert_last()", ".append()", ".push()", "add_matrix()"],
+        ans: 1,
+        exp: ".append() agrega al final de la lista." },
+      { tp: "TP 12 · Matriz escudo",
+        q: "Matriz <code>25×25</code> en grises. ¿Cuántas posiciones y qué indica 0?",
+        opts: ["50 · blanco.", "625 · negro.", "256 · transparencia.", "625 · rojo."],
+        ans: 1,
+        exp: "25×25=625. 0=negro, 255=blanco." },
+      { tp: "TP 13-14 · Pixel Art",
+        q: "¿Por qué una imagen color tiene forma <code>(N,N,3)</code> y gris <code>(N,N)</code>?",
+        opts: ["Necesita 3 bucles while.", "RGB: 3 canales; gris: 1 intensidad.", "Son el triple de anchas.", "Matplotlib lo exige."],
+        ans: 1,
+        exp: "Cada píxel color guarda [R,G,B] = 3 valores." },
+      { tp: "TP 15 · GitHub",
+        q: "¿Para qué creaste cuenta en GitHub?",
+        opts: ["Editar .bmp.", "Versionar y compartir repos y apps web.", "Reemplazar Colab.", "Compilar PDFs."],
+        ans: 1,
+        exp: "GitHub es plataforma de control de versiones y hosting." }
+    ]
+  },
+  {
+    tab: "Nivel 4 · Boss Final",
+    badge: "NIVEL 4 · TP 16 y TP 17",
+    title: "Producto Cartesiano y Álgebra Matricial",
+    desc: "Coordenadas, funciones y operaciones matriciales.",
+    questions: [
+      { tp: "TP 16 · Cartesiano",
+        q: "A tiene 5 elementos, B tiene 3. ¿Cuántos pares en <code>A×B</code>?",
+        opts: ["8 · [a+b]", "15 · [(a,b) for a in A for b in B]", "15 · [A*B]", "5 · [a,b if a==b]"],
+        ans: 1,
+        exp: "5×3=15 pares. Comprensión anidada en Python." },
+      { tp: "TP 16 · Función",
+        q: "¿Qué condición convierte una Relación en Función?",
+        opts: ["Mismos elementos.", "Cada entrada tiene ÚNICA salida.", "Todos pares.", "Salida > entrada."],
+        ans: 1,
+        exp: "Una entrada no puede dar dos salidas distintas." },
+      { tp: "TP 17 · Operaciones",
+        q: "Para sumar o multiplicar dos matrices <code>A</code> y <code>B</code> hay que:",
+        opts: ["Mismas dimensiones.", "Mismos colores.", "Ser identidad.", "Nombres mayúsculas."],
+        ans: 0,
+        exp: "Suma y multiplicación requieren mismo tamaño." },
+      { tp: "TP 17 · Especiales",
+        q: "Con blanco=1 y negro=0, ¿qué regla cumplen Diagonal y Triangular Superior?",
+        opts: ["Diagonal todo blanco; T.Sup mitad izq. blanca.", "Diagonal: blancos donde fila=columna; T.Sup: ceros donde fila>columna.", "Diagonal en bordes; T.Sup primera fila.", "Un solo píxel en el centro."],
+        ans: 1,
+        exp: "Diagonal: i=j. Triangular superior: ceros debajo de la diagonal (i>j)." }
+    ]
+  }
+];
+
+let currentStage = 0;
+let userAnswers = {};
+
+function switchView(view) {
+  document.querySelectorAll('section.view').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + view).classList.add('active');
+  document.querySelector('.section-btn[onclick*="' + view + '"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function init() {
+  renderTabs();
+  renderStage();
+  updateHUD();
+}
+
+function renderTabs() {
+  const nav = document.getElementById('nav-tabs');
+  nav.innerHTML = '';
+  STAGES.forEach((st, idx) => {
+    const btn = document.createElement('button');
+    const allDone = st.questions.every((_, q) => userAnswers[idx + '-' + q] !== undefined);
+    btn.className = 'tab-btn' + (idx === currentStage ? ' active' : '') + (allDone ? ' completed' : '');
+    btn.textContent = (allDone ? '✓ ' : '') + st.tab;
+    btn.onclick = () => {
+      document.getElementById('final-screen').classList.remove('show');
+      document.getElementById('stage-container').style.display = 'block';
+      currentStage = idx;
+      renderTabs();
+      renderStage();
+    };
+    nav.appendChild(btn);
+  });
+}
+
+function renderStage() {
+  const st = STAGES[currentStage];
+  const c = document.getElementById('stage-container');
+  let html = '<div class="stage-card"><div class="stage-header"><div>';
+  html += '<span class="stage-badge">' + st.badge + '</span>';
+  html += '<h2>' + st.title + '</h2>';
+  html += '<p class="stage-desc">' + st.desc + '</p>';
+  html += '</div></div>';
+
+  st.questions.forEach((item, qIdx) => {
+    const key = currentStage + '-' + qIdx;
+    const chosen = userAnswers[key];
+    const answered = chosen !== undefined;
+    const correct = chosen === item.ans;
+
+    html += '<div class="question-box">';
+    html += '<div class="q-meta"><span>Desafío ' + (currentStage * 4 + qIdx + 1) + ' · ' + item.tp + '</span><span>+100 XP</span></div>';
+    html += '<div class="q-title">' + item.q + '</div>';
+    html += '<div class="options">';
+
+    item.opts.forEach((optText, oIdx) => {
+      let cls = 'opt-btn';
+      if (answered) {
+        if (oIdx === item.ans) cls += ' correct';
+        else if (oIdx === chosen) cls += ' wrong';
+      }
+      const letter = ['A', 'B', 'C', 'D'][oIdx];
+      html += '<button class="' + cls + '" ' + (answered ? 'disabled' : '') + ' onclick="selectOption(' + currentStage + ',' + qIdx + ',' + oIdx + ')">';
+      html += '<strong>' + letter + ')</strong> <span>' + optText + '</span></button>';
+    });
+
+    html += '</div>';
+
+    if (answered) {
+      html += '<div class="feedback show ' + (correct ? 'ok' : 'err') + '">';
+      html += '<strong>' + (correct ? '¡Correcto! (+100 XP)' : 'Respuesta incorrecta:') + '</strong> ' + item.exp;
+      html += '</div>';
+    }
+    html += '</div>';
+  });
+
+  html += '<div class="actions-bar">';
+  if (currentStage > 0) {
+    html += '<button class="btn-secondary" onclick="prevStage()">← Nivel Anterior</button>';
+  } else {
+    html += '<span></span>';
+  }
+  if (currentStage < STAGES.length - 1) {
+    html += '<button class="btn-primary" onclick="nextStage()">Siguiente Nivel →</button>';
+  } else {
+    html += '<button class="btn-primary" onclick="finishQuest()">Finalizar Misión y Ver Rango</button>';
+  }
+  html += '</div></div>';
+
+  c.innerHTML = html;
+}
+
+function selectOption(sIdx, qIdx, oIdx) {
+  const key = sIdx + '-' + qIdx;
+  if (userAnswers[key] !== undefined) return;
+  userAnswers[key] = oIdx;
+  renderTabs();
+  renderStage();
+  updateHUD();
+}
+
+function updateHUD() {
+  let xp = 0, answered = 0;
+  STAGES.forEach((st, sIdx) => {
+    st.questions.forEach((q, qIdx) => {
+      const val = userAnswers[sIdx + '-' + qIdx];
+      if (val !== undefined) {
+        answered++;
+        if (val === q.ans) xp += 100;
+      }
+    });
+  });
+  document.getElementById('xp-display').textContent = xp;
+  document.getElementById('answered-count').textContent = answered;
+  document.getElementById('progress-bar').style.width = (answered / 16 * 100) + '%';
+
+  let rank = 'Iniciado Binario';
+  if (xp >= 1400) rank = 'Arquitecto Lógico';
+  else if (xp >= 1000) rank = 'Programador Matricial';
+  else if (xp >= 600) rank = 'Analista Booleano';
+  else if (xp >= 200) rank = 'Operador de Bits';
+
+  document.getElementById('rank-display').textContent = rank;
+  return { xp: xp, answered: answered, rank: rank };
+}
+
+function nextStage() {
+  if (currentStage < STAGES.length - 1) {
+    currentStage++;
+    renderTabs();
+    renderStage();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function prevStage() {
+  if (currentStage > 0) {
+    currentStage--;
+    renderTabs();
+    renderStage();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function finishQuest() {
+  const r = updateHUD();
+  document.getElementById('stage-container').style.display = 'none';
+  document.getElementById('final-screen').classList.add('show');
+  document.getElementById('final-rank').textContent = r.rank + ' · ' + r.xp + ' / 1600 XP';
+
+  let msg;
+  if (r.answered < 16) {
+    msg = 'Respondiste ' + r.answered + ' de 16 desafíos. Podés volver a las pestañas de arriba para completar los que faltan.';
+  } else {
+    msg = 'Completaste los 16 desafíos correspondientes a todo el recorrido anual de Lógica Matemática (TP 01 al TP 17).';
+  }
+  document.getElementById('final-msg').textContent = msg;
+
+  const grid = document.getElementById('grid-summary');
+  let gHtml = '';
+  STAGES.forEach((st, sIdx) => {
+    let score = 0;
+    st.questions.forEach((q, qIdx) => {
+      if (userAnswers[sIdx + '-' + qIdx] === q.ans) score++;
+    });
+    gHtml += '<div class="mini-card"><strong>' + st.tab + '</strong>';
+    gHtml += 'Puntaje: ' + score + ' / ' + st.questions.length + ' correctas (' + (score * 100) + ' XP)</div>';
+  });
+  grid.innerHTML = gHtml;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function resetQuest() {
+  userAnswers = {};
+  currentStage = 0;
+  document.getElementById('final-screen').classList.remove('show');
+  document.getElementById('stage-container').style.display = 'block';
+  init();
+}
+
+init();
+</html>
